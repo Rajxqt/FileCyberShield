@@ -1,4 +1,3 @@
-
 const express = require('express');
 const db = require('./modules/database');
 const scan = require('./modules/scanner');
