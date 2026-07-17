@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const db = mysql.createConnection({
     host: 'localhost', // Connect it to a cloud SQL Database to run this over multiple computers. :D
     user: 'root',
-    password: 'r15112007s', // Change this with your own connection password.
+    password: 'yourownpassword', // Change this with your own connection password.
     database: 'filecybershieldtest'
 });
 
