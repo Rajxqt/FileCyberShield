@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>FCS Dashboard</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<h1>FileCyberShield Security Dashboard</h1>
+
+<a href="/scan">
+<button>Run Scan</button>
+</a>
+
+<div class="cards">
+
+<div>
+<h2><%= files.length %></h2>
+<p>Monitored Files</p>
+</div>
+
+<div>
+<h2>
+<%= files.filter(f=>f.status==='SAFE').length %>
+</h2>
+<p>Integrity Verified</p>
+</div>
+
+<div>
+<h2>
+<%= files.filter(f=>f.status==='MODIFIED').length %>
+</h2>
+<p>Modified</p>
+</div>
+
+<div>
+<h2>
+<%= files.filter(f=>f.status==='MISSING').length %>
+</h2>
+<p>Missing</p>
+</div>
+
+</div>
+<h2>File Integrity Status</h2>
+
+<table>
+
+<tr>
+<th>File</th>
+<th>Status</th>
+<th>Last Checked</th>
+</tr>
+
+<% files.forEach(file=>{ %>
+
+<tr>
+<td><%=file.file_path%></td>
+<td><%=file.status%></td>
+<td><%=file.last_checked%></td>
+</tr>
+
+<% }) %>
+
+</table>
+
+<h2>Security Events</h2>
+
+<table>
+
+<tr>
+<th>File</th>
+<th>Event</th>
+<th>Severity</th>
+<th>Time</th>
+</tr>
+
+<% events.forEach(event=>{ %>
+
+<tr>
+<td><%=event.file_path%></td>
+<td><%=event.event_type%></td>
+<td><%=event.severity%></td>
+<td><%=event.timestamp%></td>
+</tr>
+
+<% }) %>
+
+</table>
+
+
+</body>
+</html>
